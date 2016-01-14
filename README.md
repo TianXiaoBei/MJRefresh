@@ -34,6 +34,7 @@
     * [上拉刷新10-自定义刷新控件(自动回弹)](#上拉刷新10-自定义刷新控件(自动回弹))
     * [UICollectionView01-上下拉刷新](#UICollectionView01-上下拉刷新)
     * [UIWebView01-下拉刷新](#UIWebView01-下拉刷新)
+    
 * [期待](#期待)
 
 ## <a id="支持哪些控件的刷新"></a>支持哪些控件的刷新
@@ -339,6 +340,23 @@ self.webView.scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingB
 }];
 ```
 ![(UICollectionView01-上下拉刷新)](http://images0.cnblogs.com/blog2015/497279/201506/141206080514524.gif)
+
+## 下拉刷新,加载位移动画
+```objc
+self.tableView.mj_header = [TLRefreshMoveAnimateHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    
+    //设置位移动画数据源
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSUInteger i = 1; i <= 4; i++) {
+//        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%lu", (unsigned long)i]];
+        UIImage *image;//根据自己的图片数组加载动画图片
+        [arr addObject:image];
+    }
+    self.tableView.mj_header.gifImages = [NSArray arrayWithArray:arr];
+    
+    // 马上进入刷新状态
+    [self.tableView.mj_header beginRefreshing];
+```
 
 ## 提醒
 * 本框架纯ARC，兼容的系统>=iOS6.0、iPhone\iPad横竖屏
