@@ -156,4 +156,7 @@
 {
     return [[NSUserDefaults standardUserDefaults] objectForKey:self.lastUpdatedTimeKey];
 }
+
+- (void)performTaskWithLoadingData{}
+
 @end
