@@ -22,4 +22,9 @@
 
 /** 忽略多少scrollView的contentInset的top */
 @property (assign, nonatomic) CGFloat ignoredScrollViewContentInsetTop;
+
+/** 你可以在加载网络数据时,根据加载的状态做一些事情,比如播放个连续动画,位移动画等 */
+- (void)performTaskWithLoaddingData NS_REQUIRES_SUPER;
+/** 位移动画的图片数组 在这个TLRefreshMoveAnimateHeader类中使用 */
+@property (nonatomic,strong) NSArray *gifImages;
 @end
